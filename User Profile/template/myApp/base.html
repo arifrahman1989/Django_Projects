@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Musician</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="text-center">
+  <nav class="navbar navbar-expand-lg navbar-light justify-content-center"
+    style="background-color: #321640;  text-transform: capitalize; font-weight: 700; ">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link " style="color:white;" href="{% url 'myApp:index' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " style="color:white;" href="{% url 'myApp:musician_form' %}">Musician Form</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " style="color:white;" href="{% url 'myApp:album_form' %}">Album Form</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container">
+    {% block body_block %}
+
+
+
+    {% endblock %}
+  </div>
+</body>
+
+</html>

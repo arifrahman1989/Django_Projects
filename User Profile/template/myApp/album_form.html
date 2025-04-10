@@ -1,0 +1,26 @@
+{% extends 'myApp/base.html' %}
+
+{% block body_block %}
+
+<h2 style="border: 2px solid palevioletred; 
+padding:10px;
+margin: auto;
+margin-top: 20px;
+border-radius: 5px;
+width:50%;
+background-color: #321640; 
+color: white;">This is Album Form: </h2>
+<form method='post' style="width:50%; 
+        margin: auto; 
+        background-color: #321640; 
+        padding:20px 0; 
+        border:2px solid Aquamarine; 
+        color: white;
+        margin-top: 7%;
+        border-radius: 10px;">
+    {{ album_form.as_p }}
+    {% csrf_token %}
+    <input type="submit" name="submit" value="ADD" class="btn btn-success btn-md">
+</form>
+
+{% endblock %}

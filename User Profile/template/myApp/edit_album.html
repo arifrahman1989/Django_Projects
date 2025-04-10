@@ -1,0 +1,31 @@
+{% extends 'myApp/base.html' %}
+
+{% block body_block %}
+
+<h4 style="border: 2px solid palevioletred; 
+padding:10px;
+margin: auto;
+margin-top: 20px;
+border-radius: 5px;
+width:50%;
+background-color: #321640; 
+color: white;">This Album Name Change:</h4>
+{% if success_text %}
+<div class="alert alert-success">{{ success_text }}</div>
+{% endif %}
+<form method="POST" style="width:50%; 
+        margin: auto; 
+        background-color: #321640; 
+        padding:20px 0; 
+        border:2px solid Aquamarine; 
+        color: white;
+        margin-top: 7%;
+        border-radius: 10px;">
+    {{ edit_form.as_p }}
+    {% csrf_token %}
+    <input type="submit" name="submit" vlaue="Updated" class="btn btn-success">
+</form>
+<br>
+<a href="{% url 'myApp:delete_album' album_id=album_id %}" class="btn btn-danger btn-md"
+    onclick="return confirm('Delete This Album')">Delete</a>
+{% endblock %}

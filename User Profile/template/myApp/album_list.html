@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body class="container">
+    <h1>This is Album List</h1>
+    <h4>Artist Name: {{artist_info.first_name }} {{ artist_info.last_name}}</h4>
+    <h4>Instrument: {{ artist_info.instrument}}</h4>
+    <h4>Artist Rating: {{ artist_rating.num_stars__avg }}</h4>
+    <a href="{% url 'myApp:edit_artist' artist_id=artist_info.id %}" class="btn btn-primary btn-sm">Edit</a>
+    <h3>List of Album:</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Aritist Name</th>
+            <th>Release Date</th>
+            <th>Rating</th>
+        </tr>
+        {% for album in album_list %}
+        <tr>
+            <td><a style="text-decoration: none;" href="{% url 'myApp:edit_album' album_id=album.id %}">
+                    {{album.name}}</a></td>
+            <td>{{ album.release_date| date:"M d, Y" }}</td>
+            <td>{{ album.num_stars }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'myApp:delete_musician' artist_id=artist_info.id %}" onclick="return confirm('Delete Musician')"
+        class="btn btn-danger">Delete</a>
+</body>
+
+</html>

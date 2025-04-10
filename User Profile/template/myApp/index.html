@@ -1,0 +1,33 @@
+{% extends 'myApp/base.html' %}
+
+{% block body_block %}
+<h2 style="border: 2px solid palevioletred; 
+padding:10px;
+margin: auto;
+margin-top: 20px;
+border-radius: 5px;
+width:50%;
+background-color: #321640; 
+color: white;">List of Musician</h2>
+<ul style="border: 2px solid palevioletred; 
+padding:10px;
+margin: auto;
+margin-top: 20px;
+list-style-type: none;
+border-radius: 5px;
+width:50%;
+background-color: #321640; 
+color: white;">
+    {% if musician_list %}
+    {% for musician in musician_list %}
+    <li style="margin: 5px;">
+        <a style="text-decoration: none; "
+            href="{% url 'myApp:album_list' artist_id=musician.id %}">{{musician.first_name }} {{musician.last_name }}
+        </a>
+    </li>
+    {% endfor %}
+    {% else %}
+    {% endif %}
+</ul>
+
+{% endblock %}
